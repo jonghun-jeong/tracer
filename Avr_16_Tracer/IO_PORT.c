@@ -24,3 +24,11 @@ void led1()
 	else if((switch_1%2)==1)
 	PORTC_1_ON;
 }
+void INIT_IO()
+{
+	OUT_PORTC_0;
+	OUT_PORTC_1;
+	DDRA= 0x00;
+	MCUCR= 0x0A;
+	GICR = 0xC0;
+}

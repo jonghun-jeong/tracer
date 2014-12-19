@@ -10,45 +10,60 @@
 #include <avr/interrupt.h>
 #include "Avr_16_Tracer.h"
 #include "IO_PORT.h"
-void usart(void);
-volatile int echo;
+#include "USART.h"
+#include "TIMER.h"
+volatile int time=0;
+volatile unsigned char data='a';
+volatile int usart_time = 0;
+
 void main(void)
 {
 
 	sei();
+	INIT_IO();
+	INIT_USART();
+	INIT_TIMER();
 	
-	INIT_PORTC;
-	OUT_PORTC_0;
-	OUT_PORTC_1;
-	DDRA= 0x00;
-	PORTC=0xff;
-	UCSRA=0x02;
-	UCSRB=0x18;
-	UCSRC=0x06;
-	UBRRH=0x00;
-	UBRRL=0x19;
-	MCUCR= 0x0A;
-	GICR = 0xC0;
-	PORTC=0x00;
-	usart();
 	
+	while(1)
+	{
+		;
+	}
 
 }
-
+SIGNAL(TIMER0_COMP_vect)
+{
+	time++;
+	usart_time++;
+	if(time<8)
+	{
+		PORTC=0x00;
+	}
+	else if(time==16)
+	{
+		time=0;
+	}
+	else
+	{
+		PORTC=0xff;
+	}
+	
+	if(usart_time > 10)
+	{
+		usart_time = 0;
+		USART_TEST();
+	}
+}
 SIGNAL(INT0_vect)
 {
 	led0();
+	OCR1B=0;
+	OCR1A=60; 
+	
 }
 SIGNAL(INT1_vect)
 {
 	led1();
-}
-void usart()
-{
-	while(1)
-	{
-		while((UCSRA&0x20)!=0x20);
-		UDR=echo;
-		
-	}
+	OCR1B=60;
+	OCR1A=0;
 }

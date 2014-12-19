@@ -13,7 +13,7 @@
 
 #define BIT_ON(mPORT, index)	mPORT |= (0x01 << index)
 #define BIT_OFF(mPORT, index)	mPORT &= ~(0x01 << index)
-#define INIT_PORTC				DDRC=0x00;
+
 #define OUT_PORTC_0				BIT_ON(DDRC, 0)
 #define OUT_PORTC_1				BIT_ON(DDRC, 1)
 #define PORTC_0_ON				BIT_ON(PORTC, 0)//PORTC는 LED임
@@ -24,7 +24,7 @@
 
 void led0(void);
 void led1(void);
-
+void INIT_IO(void);
 
 
 #endif  //IO_PORT_H_ 
