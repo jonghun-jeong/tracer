@@ -70,7 +70,7 @@
 #define TCCR0_Clk_1024															BIT_ON(TCCR0,2);BIT_ON(TCCR0,1);BIT_ON(TCCR0,0)
 
 
-#define SET_OCR0									OCR0=50
+#define SET_OCR0																OCR0=50
 
 
 

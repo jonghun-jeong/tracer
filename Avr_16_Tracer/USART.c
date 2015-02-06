@@ -25,7 +25,7 @@ void INIT_USART()
 	UCSRC_Asynchronous_Mode;
 	UCSRC_8_bit;
 	UCSRC_Parity_Mode_Disable;
-	UCSRC_USART_Register_Select_ON;
+	//UCSRC_USART_Register_Select_ON;
 	UCSRC_1BIT_Stop_Select;
 	
 	
@@ -36,8 +36,8 @@ void INIT_USART()
 
 
 
-void USART_TEST(void)
+/*void USART_TEST(void)
 {
 	while((UCSRA & 0x20) == 0x00);
 	UDR='a';	
-}
+}*/

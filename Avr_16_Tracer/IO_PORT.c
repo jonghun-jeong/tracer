@@ -6,7 +6,7 @@
  */ 
 #include "IO_PORT.h"
 
-void led0()
+/*void led0()
 {
 	static int switch_0=0;
 	switch_0++;
@@ -23,7 +23,7 @@ void led1()
 	PORTC_1_OFF;
 	else if((switch_1%2)==1)
 	PORTC_1_ON;
-}
+}*/
 void INIT_IO()
 {
 	OUT_PORTC_0;

@@ -22,8 +22,8 @@
 #define PORTC_1_OFF				BIT_OFF(PORTC,1)
 
 
-void led0(void);
-void led1(void);
+//void led0(void);
+//void led1(void);
 void INIT_IO(void);
 
 

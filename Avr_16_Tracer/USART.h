@@ -90,14 +90,11 @@
 ///////////////////////////////////////////////////////////////////////////////////////
  		
 
-void INIT_USART(void);
-void USART_Transmit(unsigned char data);
-unsigned char USART_Receive(void);
-unsigned char RX0_char_scan(void);
-unsigned char RX0_char(void);
-void TX0_char(unsigned char data);
-void USART_TEST(void);
 
+
+
+//void USART_TEST(void);
+void INIT_USART(void);
 
 
 
